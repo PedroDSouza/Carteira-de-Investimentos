@@ -18,7 +18,7 @@ Projeto de LDS para gerenciar uma carteira de investimentos, permitindo a adiç�
 1. Clone este repositório:
 
    ```bash
-   git clone https://github.com/seu-usuario/seu-repositorio.git
+   git clone https://github.com/PedroDSouza/CRUD.git
 
 
 ##Integrantes do Grupo:
