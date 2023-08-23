@@ -21,5 +21,17 @@ Projeto de LDS para gerenciar uma carteira de investimentos, permitindo a adi√ß√
    git clone https://github.com/PedroDSouza/CRUD.git
 
 
-##Integrantes do Grupo:
+#Integrantes do Grupo:
+
+CARLOS ALBERTO SIQUEIRA SILVA - GU3022293
+
+LUAN CAVALCANTI MORAIS - GU302119X - Scrum Master
+
+NICOLE DOS SANTOS MORAIS - GU3020975 
+
+PEDRO HENRIQUE OLIVEIRA DE SOUZA - GU300161X
+
+VICTOR GABRIEL SANTOS MAGALHAES - GU3020371 - Product Owner
+
+
 
