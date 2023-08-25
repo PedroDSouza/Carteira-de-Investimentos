@@ -25,7 +25,7 @@ Projeto de LDS para gerenciar uma carteira de investimentos, permitindo a adi√ß√
 ![image](https://github.com/PedroDSouza/CRUD/assets/99222688/c85c7342-a38f-488f-a5cc-098f0c75c7fb)
 
 
-#Integrantes do Grupo:
+## Integrantes do Grupo:
 
 CARLOS ALBERTO SIQUEIRA SILVA - GU3022293
 
