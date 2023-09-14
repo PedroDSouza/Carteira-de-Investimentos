@@ -11,6 +11,8 @@ Projeto de LDS para gerenciar uma carteira de investimentos, permitindo a adi√ß√
 
 - JavaScript
 - PHP
+- Laravel
+- Tailwind
 - MySQL
 
 ## Como Usar
