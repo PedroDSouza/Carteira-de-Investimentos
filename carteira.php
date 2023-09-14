@@ -23,8 +23,8 @@
             <div id="carteira" class="hidden">
                 <div class="info-carteira">
                     <h2>CARTEIRA 1</h2>
-                    <p>Total em R$: <span id="total-r">5000.00</span></p>
-                    <p>Total em Dólar: <span id="total-usd">1000.00</span></p>
+                    <p>Total em R$: <span id="total-r">$total_real</span></p> <!-- Essas infos vou trazer de uma query via conexão -->
+                    <p>Total em Dólar: <span id="total-usd">$total_dolar</span></p> <!-- Essas infos vou trazer de uma query via conexão -->
                 </div>
 
             <div class="fechar-carteira" id="fechar">
