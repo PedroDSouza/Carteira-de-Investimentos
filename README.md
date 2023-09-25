@@ -40,15 +40,15 @@ exemplo: "C:\Users\php\php.exe"
 
 5. Rode o projeto com os seguintes comandos:
     ```bash
-git clone composer install
+  composer install
 
-git clone composer upgrade
+  composer upgrade
+ 
+  cp .env.example .env
 
-git clone cp .env.example .env
+  php artisan key:generate
 
-git clone php artisan key:generate
-
-git clone php artisan serve
+  php artisan serve
    
    
    
