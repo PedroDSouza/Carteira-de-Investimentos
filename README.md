@@ -12,7 +12,7 @@ Projeto de LDS para gerenciar uma carteira de investimentos, permitindo a adiç�
 - JavaScript
 - PHP
 - Laravel
-- Tailwind
+- Bootstrap / Tailwind
 - MySQL
 
 ## Como Usar
@@ -21,6 +21,24 @@ Projeto de LDS para gerenciar uma carteira de investimentos, permitindo a adiç�
 
    ```bash
    git clone https://github.com/PedroDSouza/CRUD.git
+
+2. Instale o Php na sua máquina ou o XAMPP
+    
+    ```bash
+   git clone https://www.youtube.com/watch?v=JQU8CmmHJpM
+
+3. Instale o Composer na sua máquina indicando a pasta aonde foi instala o PHP
+exemplo: "C:\Users\php\php.exe"
+
+    ```bash
+    git clone https://www.youtube.com/watch?v=cdqUUDYmcHQ
+
+4. Instale o Laravel
+
+    ```bash
+   git clone  https://www.youtube.com/watch?v=IIynoYfLutA
+
+
 
 ## Wireframe
 
