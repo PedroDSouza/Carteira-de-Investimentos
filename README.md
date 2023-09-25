@@ -38,6 +38,17 @@ exemplo: "C:\Users\php\php.exe"
     ```bash
    git clone  https://www.youtube.com/watch?v=IIynoYfLutA
 
+5. Rode o projeto com os seguintes comandos:
+    ```bash
+git clone composer install
+git clone composer upgrade
+git clone cp .env.example .env
+git clone php artisan key:generate
+git clone php artisan serve
+   
+   
+   
+
 ## Para evitar erros comuns ao rodar o projeto siga as instruções:
 
 1. Libere todas as permissões da pasta aonde está localizada o seu projeto seguindo as instruções:
