@@ -59,7 +59,7 @@ exemplo: "C:\Users\php\php.exe"
 
 Clique com o botão direito na pasta -> Propriedades -> Segurança -> Editar -> permitir controle total -> aplicar 
 
-2. Edite o arquivo PHP.ini e descomente as linhas:
+2. Edite o arquivo PHP.ini localizado aonde vc instalou o php e descomente as linhas:
 
     extension=fileinfo  (evitar erro na hora de dar o comando composer update no terminal)
 
