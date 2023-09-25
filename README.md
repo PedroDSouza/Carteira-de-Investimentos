@@ -40,15 +40,15 @@ exemplo: "C:\Users\php\php.exe"
 
 5. Rode o projeto com os seguintes comandos:
 
-  composer install
-
-  composer upgrade
- 
-  cp .env.example .env
-
-  php artisan key:generate
-
-  php artisan serve
+          composer install
+        
+          composer upgrade
+         
+          cp .env.example .env
+        
+          php artisan key:generate
+        
+          php artisan serve
    
    
    
