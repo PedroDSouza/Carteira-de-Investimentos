@@ -39,7 +39,7 @@ exemplo: "C:\Users\php\php.exe"
    git clone  https://www.youtube.com/watch?v=IIynoYfLutA
 
 5. Rode o projeto com os seguintes comandos:
-    ```bash
+
   composer install
 
   composer upgrade
