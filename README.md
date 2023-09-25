@@ -61,8 +61,9 @@ Clique com o botão direito na pasta -> Propriedades -> Segurança -> Editar -> 
 
 2. Edite o arquivo PHP.ini e descomente as linhas:
 
-file_uploads (evitar erro na hora de dar o comando composer update no terminal)
-extension.zip (evitar erro na hora de dar o comando composer update no terminal)
+    extension=fileinfo  (evitar erro na hora de dar o comando composer update no terminal)
+
+    extension.zip (evitar erro na hora de dar o comando composer update no terminal)
 
 
 ## Wireframe
