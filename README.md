@@ -27,7 +27,7 @@ Projeto de LDS para gerenciar uma carteira de investimentos, permitindo a adiç�
     ```bash
    git clone https://www.youtube.com/watch?v=JQU8CmmHJpM
 
-3. Instale o Composer na sua máquina indicando a pasta aonde foi instala o PHP
+3. Instale o Composer na sua máquina indicando a pasta aonde foi instalada o PHP
 exemplo: "C:\Users\php\php.exe"
 
     ```bash
