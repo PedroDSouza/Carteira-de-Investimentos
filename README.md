@@ -41,13 +41,13 @@ exemplo: "C:\Users\php\php.exe"
 5. Rode o projeto com os seguintes comandos:
     ```bash
 git clone composer install
-```bash
+
 git clone composer upgrade
-```bash
+
 git clone cp .env.example .env
-```bash
+
 git clone php artisan key:generate
-```bash
+
 git clone php artisan serve
    
    
