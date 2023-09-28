@@ -65,6 +65,24 @@ Clique com o botão direito na pasta -> Propriedades -> Segurança -> Editar -> 
 
     extension.zip (evitar erro na hora de dar o comando composer update no terminal)
 
+3. Problemas com o vite:
+
+   Quando rodar o projeto e se deparar com a seguinte mensagem de erro : "laravel-vite-plugin/inertia-helpers"execute os comandos abaixo:
+
+    npm install --save-dev vite laravel-vite-plugin
+    npm install --save-dev @vitejs/plugin-vue
+
+   É preciso atualizar o package.json:
+
+    "scripts": {
+       "dev": "vite",
+       "build": "vite build"
+   }
+
+   Finalmente, voce pode acionar este comando abaixo para construir o Vite e criar o arquivo de manifesto.
+
+       npm run build
+
 
 ## Wireframe
 
