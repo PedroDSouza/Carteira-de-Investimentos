@@ -12,7 +12,7 @@ Projeto de LDS para gerenciar uma carteira de investimentos, permitindo a adiç�
 - JavaScript
 - PHP
 - Laravel
-- Tailwind
+- Bootstrap / Tailwind
 - MySQL
 
 ## Como Usar
@@ -21,6 +21,68 @@ Projeto de LDS para gerenciar uma carteira de investimentos, permitindo a adiç�
 
    ```bash
    git clone https://github.com/PedroDSouza/CRUD.git
+
+2. Instale o Php na sua máquina ou o XAMPP
+    
+    ```bash
+   git clone https://www.youtube.com/watch?v=JQU8CmmHJpM
+
+3. Instale o Composer na sua máquina indicando a pasta aonde foi instalada o PHP
+exemplo: "C:\Users\php\php.exe"
+
+    ```bash
+    git clone https://www.youtube.com/watch?v=cdqUUDYmcHQ
+
+4. Instale o Laravel
+
+    ```bash
+   git clone  https://www.youtube.com/watch?v=IIynoYfLutA
+
+5. Rode o projeto com os seguintes comandos:
+
+          composer install
+        
+          composer upgrade
+         
+          cp .env.example .env
+        
+          php artisan key:generate
+        
+          php artisan serve
+   
+   
+   
+
+## Para evitar erros comuns ao rodar o projeto siga as instruções:
+
+1. Libere todas as permissões da pasta aonde está localizada o seu projeto seguindo as instruções:
+
+Clique com o botão direito na pasta -> Propriedades -> Segurança -> Editar -> permitir controle total -> aplicar 
+
+2. Edite o arquivo PHP.ini localizado aonde vc instalou o php e descomente as linhas:
+
+    extension=fileinfo  (evitar erro na hora de dar o comando composer update no terminal)
+
+    extension.zip (evitar erro na hora de dar o comando composer update no terminal)
+
+3. Problemas com o vite:
+
+   Quando rodar o projeto e se deparar com a seguinte mensagem de erro : "laravel-vite-plugin/inertia-helpers"execute os comandos abaixo:
+
+    npm install --save-dev vite laravel-vite-plugin
+    npm install --save-dev @vitejs/plugin-vue
+
+   É preciso atualizar o package.json:
+
+    "scripts": {
+       "dev": "vite",
+       "build": "vite build"
+   }
+
+   Finalmente, voce pode acionar este comando abaixo para construir o Vite e criar o arquivo de manifesto.
+
+       npm run build
+
 
 ## Wireframe
 
@@ -42,4 +104,3 @@ PEDRO HENRIQUE OLIVEIRA DE SOUZA - GU300161X
 VICTOR FREIRES ALMEIDA DE ARRUDA - GU3020002
 
 VICTOR GABRIEL SANTOS MAGALHAES - GU3020371 - Product Owner
-
