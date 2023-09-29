@@ -12,7 +12,9 @@
 <body>
     <div class="container">
         <div class="sidebar">
-            <a href="#" id="icon1" class="item1"><span class="icon"><img src="./img/investidor.png" alt="Investidor" height="35px" style="padding-left:40px;"></span></a>
+            <a href="/investidor" id="icon1" class="item1"><span class="icon"><img src="./img/investidor.png" alt="Investidor" height="35px" style="padding-left:40px;"></span></a>
+            <a href="/carteira" id="icon1" class="item1"><span class="icon"><img src="./img/pcarteira.png" alt="Investidor" height="35px" style="padding-left:40px;"></span></a>
+            <a href="/transacao" id="icon1" class="item1"><span class="icon"><img src="./img/ptransacao.png" alt="Investidor" height="35px" style="padding-left:40px;"></span></a>
             <a href="./" id="icon1" class="item1"><svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 16" height="35px" style="padding-left:40px;"><path stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3"></path>
 </svg></a>
         </div>
@@ -21,7 +23,7 @@
         <div class="content">
             <div class="top-row">
                 <h3>Carteiras</h3>
-                <button  type="submit" value="Adicionar +" onclick="window.location.href = '/criar'" class="add-button">Adicionar +</button> 
+                <button  type="submit" value="Adicionar +" onclick="window.location.href = '#'" class="add-button">Adicionar +</button> 
             </div>
             <!--INÍCIO CONTAINERS DAS CARTEIRAS!!!!!-->
             <div class="container custom-container">

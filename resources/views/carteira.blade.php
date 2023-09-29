@@ -98,7 +98,7 @@
                         </div>
 
                         <div class="flex w-full justify-content-center flexbutton">
-                           <input  type="submit" value="Criar ativo" onclick="window.location.href = '/carteira'" class="bg-blue-800 text-white font-bold text-lg hover:bg-gray-700 p-2 px-5 mt-8">
+                           <input  type="submit" value="Criar ativo" onclick="window.location.href = '/investidor'" class="bg-blue-800 text-white font-bold text-lg hover:bg-gray-700 p-2 px-5 mt-8">
                         </div>
                     </form>
             </div>

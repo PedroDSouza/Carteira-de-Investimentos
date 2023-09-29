@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\{
+    Controller,
+    UserController
+};
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,18 +18,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('login');
-}); //Rota Principal
 
-Route::get('/cadastro', function () {
-    return view('cadastro');
-});
+Route::get('/', [Controller::class, 'login'])->name('login');
+Route::get('/cadastro', [Controller::class, 'cadastro'])->name('cadastro');
+Route::get('/transacao', [Controller::class, 'transacao'])->name('transacao');
+Route::get('/investidor', [Controller::class, 'investidor'])->name('investidor');
+Route::get('/carteira', [Controller::class, 'carteira'])->name('carteira');
 
-Route::get('/carteira', function () {
-    return view('pagina_do_investidor');
-});
 
-Route::get('/criar', function () {
-    return view('criarcarteira');
-});
+
+
+ 
+
+
