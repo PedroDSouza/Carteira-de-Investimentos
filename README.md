@@ -57,7 +57,7 @@ exemplo: "C:\Users\php\php.exe"
 
 ## Para evitar erros comuns ao rodar o projeto siga as instruções:
 
-1. Se estiver usando o Windoes - Libere todas as permissões da pasta aonde está localizada o seu projeto seguindo as instruções:
+1. Se estiver usando o Windows - Libere todas as permissões da pasta aonde está localizada o seu projeto seguindo as instruções:
 
 Clique com o botão direito na pasta -> Propriedades -> Segurança -> Editar -> permitir controle total -> aplicar 
 
