@@ -9,9 +9,11 @@ Projeto de LDS para gerenciar uma carteira de investimentos, permitindo a adi√ß√
 
 ## Tecnologias Utilizadas
 
-- JavaScript
 - PHP
 - Laravel
+- JavaScript
+- HTML5
+- CSS3
 - Bootstrap / Tailwind
 - MySQL
 
