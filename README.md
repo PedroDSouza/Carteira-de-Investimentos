@@ -42,7 +42,7 @@ exemplo: "C:\Users\php\php.exe"
 
           composer install
         
-          composer upgrade
+          composer update
          
           cp .env.example .env
         
