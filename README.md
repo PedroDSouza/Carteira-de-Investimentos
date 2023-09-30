@@ -67,7 +67,7 @@ Clique com o botão direito na pasta -> Propriedades -> Segurança -> Editar -> 
 
     extension.zip (evitar erro na hora de dar o comando composer update no terminal)
 
-3. Problemas com o vite:
+3. Vite manifest não encontrado:
 
     Quando rodar o projeto e acessar a página de transações, se deparar com o erro "Vite manifest not found at:....", execute os comandos abaixo:
 
@@ -85,7 +85,7 @@ Clique com o botão direito na pasta -> Propriedades -> Segurança -> Editar -> 
 
     A partir daí é só executar os mesmos códigos do erro abaixo e rodar o programa
 
-   
+3. Problemas com o vite:
 
    Quando rodar o projeto e se deparar com a seguinte mensagem de erro : "laravel-vite-plugin/inertia-helpers"execute os comandos abaixo:
 
