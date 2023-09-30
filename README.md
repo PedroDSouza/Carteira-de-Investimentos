@@ -85,6 +85,8 @@ Clique com o botão direito na pasta -> Propriedades -> Segurança -> Editar -> 
 
     A partir daí é só executar os mesmos códigos do erro abaixo e rodar o programa
 
+   
+
    Quando rodar o projeto e se deparar com a seguinte mensagem de erro : "laravel-vite-plugin/inertia-helpers"execute os comandos abaixo:
 
     npm install --save-dev vite laravel-vite-plugin
