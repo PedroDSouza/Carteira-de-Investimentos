@@ -103,6 +103,13 @@ Clique com o botão direito na pasta -> Propriedades -> Segurança -> Editar -> 
 
        npm run build
 
+   Feito isso, se a pagina elaborada com o Vite nao puxar o CSS implementado abra dois terminais distintos no VS Code através do comando CRTL + ' no primeiro terminal execute:
+   
+       npm run dev
+
+   E no segundo terminal execute:
+   
+       php artisan serve
 
 ## Wireframe
 
