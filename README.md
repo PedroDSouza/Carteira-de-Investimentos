@@ -113,6 +113,14 @@ Clique com o botão direito na pasta -> Propriedades -> Segurança -> Editar -> 
    
        php artisan serve
 
+
+
+Em caso de erro no banco "Could not find driver":
+
+    Digite no cmd: php -i | find /i "Configuration file"
+    
+    E descomente a estensão: ;extension=pdo_mysql
+
 ## Wireframe
 
 ![image](https://github.com/PedroDSouza/CRUD/assets/99222688/c85c7342-a38f-488f-a5cc-098f0c75c7fb)
