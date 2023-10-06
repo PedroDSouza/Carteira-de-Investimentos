@@ -43,6 +43,7 @@ exemplo: "C:\Users\php\php.exe"
 5. Rode o projeto com os seguintes comandos:
 
           composer install
+Em caso de erro no "composer install", só segue os códigos abaixo:
 
            composer install --ignore-platform-reqs
         
