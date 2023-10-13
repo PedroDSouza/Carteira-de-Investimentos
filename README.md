@@ -1,144 +1,238 @@
 # Carteira de Investimentos
 
-Projeto de LDS para gerenciar uma carteira de investimentos, permitindo a adição e visualização de ativos financeiros e análises de dashboard.
+Projeto de LDS (Laboratório de Desenvolvimento de Sistemas) para gerenciar uma carteira de investimentos, permitindo a adição e visualização de ativos financeiros e análises de dashboard.
 
-## Funcionalidades
+## Funcionalidades do site
 
 - Adição de Ativos: Adicione novos ativos à sua carteira informando o nome do ativo.
 - Visualização de Ativos: Visualize os ativos cadastrados na sua carteira.
 
-## Tecnologias Utilizadas
+## Ferramentas usadas
 
-- PHP
-- Laravel
-- JavaScript
-- HTML5
-- CSS3
-- Bootstrap / Tailwind
-- MySQL
+- XAMPP — Banco de dados MySQL e Apache com suporte as linguagens PHP e Perl.
 
-## Como Usar
+- Composer —  Ferramenta de gerenciamento de dependências para PHP. 
 
-1. Clone este repositório:
+- Laravel 10.x — Framework de desenvolvimento web em PHP que utiliza a arquitetura MVC (Model-View-Controller).
 
-   ```bash
-   git clone https://github.com/PedroDSouza/CRUD.git
+- Livewere — Biblioteca do Laravel que cria interfaces dinâmicas (similares ao Vue) com códigos do Blade e do próprio Laravel.
 
-2. Instale o Php na sua máquina ou o XAMPP
+- Alpine.js — Framework JavaScript minimalista que permite adicionar interatividade à página HTML de forma declarativa sem muito código.
+
+- TailwindCSS — Framework de CSS.
+
+- Vue.js — Framework JavaScript.
+
+- Node.js — Ambiente de execução JavaScript.
+
+## Prepare o ambiente de desenvolvimento
+
+1. Instale o XAMPP na sua máquina:
     
     ```bash
-   git clone https://www.youtube.com/watch?v=JQU8CmmHJpM
+        Versão: XAMPP 8.2.4 / PHP 8.2.4
 
-3. Instale o Composer na sua máquina indicando a pasta aonde foi instalada o PHP
-exemplo: "C:\Users\php\php.exe"
+        XAMPP: https://www.apachefriends.org/pt_br/download.html
 
-    ```bash
-    git clone https://www.youtube.com/watch?v=cdqUUDYmcHQ
+    ```
 
-4. Instale o Laravel
+2. Instale o Composer na sua máquina indicando o diretório onde foi instalado o executável do PHP:
 
     ```bash
-   git clone  https://www.youtube.com/watch?v=IIynoYfLutA
+        Composer: https://getcomposer.org/download/
 
-5. Rode o projeto com os seguintes comandos:
+        Exemplo com XAMPP: "C:\xampp\php\php.exe"
 
-          composer install
-Em caso de erro no "composer install", só segue os códigos abaixo:
+        Veja como funciona:
 
-           composer install --ignore-platform-reqs
+        https://www.youtube.com/watch?v=yCXfFZljKy8
+    ```
+
+2. Instale o Node.js:
+
+    ```bash
+        Node.js: https://nodejs.org/pt-br/download
+
+        Versão: node 18.18.0 / npm 9.8.1
+
+        Veja como funciona:
+
+        https://www.youtube.com/watch?v=OcUHXEVQfIU&t=255s
+    ```
+
+## Fazendo o projeto funcionar:
+
+1. Clone o repositório:
+
+    ```bash
+        git clone https://github.com/PedroDSouza/Carteira-de-Investimentos.git
+    ```
+
+2. Entre no diretório do projeto e rode no terminal os seguintes comandos:
+
+    *Para instalar as dependências do composer dentro do projeto:*
+
+    ```bash
+        composer install
+    ```
+  
+    
+    *Em caso de erro com o "composer install", siga os comandos abaixo:*
+
+    ```bash
+        composer install --ignore-platform-reqs
         
-          composer update
-         
-          cp .env.example .env
+        composer update
+            
+        cp .env.example .env
         
-          php artisan key:generate
+        php artisan key:generate
+    ``` 
+
+    *Rodando o servidor do PHP:*
+
+    ```bash
+        php artisan serve
+    ``` 
+   
+3. Em um novo terminal atualize os arquivos do Node.js e inicie o servidor:
+
+     *Atualizando os arquivos:*
+     
+    ```bash
+        npm update
+    ```
+
+    *Iniciando o servidor:*
+
+    ```bash
+        npm run dev
+    ```
         
-          php artisan serve
+    *ATENÇÃO: os servidores do node e do php precisam estar rodando simultaneamente em terminais distintos.*
+
+## Para possíveis erros de execução siga os passos abaixo:
+
+1. No Windows — Libere todas as permissões do diretório onde está localizado o seu projeto seguindo estas instruções:
+
+    ```bash
+        Clique com o botão direito sobre o diretório do projeto -> Propriedades -> Segurança -> Editar -> Permitir controle total -> Aplicar 
+    ```
+
+2. Edite o arquivo php.ini localizado onde foi instalado o php e descomente as linhas:
+    ```bash
+        extension=fileinfo  (evitar erro na hora de dar o comando composer update no terminal)
+
+        extension.zip (evitar erro na hora de dar o comando composer update no terminal)
+    ``` 
+
+3. Problemas com o node (Vite):
+
+    *Caso se depare com a seguinte mensagem de erro: 
+    "laravel-vite-plugin/inertia-helpers" execute os comandos abaixo:*
+
+    ```bash
+        npm install --save-dev vite laravel-vite-plugin
+        npm install --save-dev @vitejs/plugin-vue
+    ```
+
    
+
+    *É preciso atualizar o package.json:*
+
+    ```bash
+        "scripts": {
+        "dev": "vite",
+        "build": "vite build"
+        }
+    ```
+    
+
+    *Execute este comando para criar um novo diretório de compilação de produção do  projeto:*
+    
+    ```bash
+        npm run build
+    ```
+    
+    *Por fim, execute os comandos em terminais distintos e inicie os servidores do projeto normalmente:*
    
-   
-
-## Para evitar erros comuns ao rodar o projeto siga as instruções:
-
-1. Se estiver usando o Windows - Libere todas as permissões da pasta aonde está localizada o seu projeto seguindo as instruções:
-
-Clique com o botão direito na pasta -> Propriedades -> Segurança -> Editar -> permitir controle total -> aplicar 
-
-2. Edite o arquivo PHP.ini localizado aonde vc instalou o php e descomente as linhas:
-
-    extension=fileinfo  (evitar erro na hora de dar o comando composer update no terminal)
-
-    extension.zip (evitar erro na hora de dar o comando composer update no terminal)
-
-3. Vite manifest não encontrado:
-
-    Quando rodar o projeto e acessar a página de transações, se deparar com o erro "Vite manifest not found at:....", execute os comandos abaixo:
-
-    Instale o Node.js e o npm. Quando instalar o node.js direto do site oficial o npm vem junto. (Site oficial: https://nodejs.org/en)
-    Após a instalação, adicione o caminho do Node.js ao caminho do sistema. Você pode fazer isso editando o arquivo PATH no seu sistema operacional.
-    Ou utilize esse comando no cmd caso sua SO for Windows: "set PATH=%PATH%;C:\Program Files\nodejs".
-
-    Após a instalação, verifique se o Node.js e o npm estão instalados corretamente:
-    Execute os códigos no cmd "node -v" e "npm -v"
-
-    Se o Node.js e o npm estiverem instalados corretamente, verifique se o caminho do Node.js está correto.
-    Execute no cmd "echo %PATH%"
-
-    O caminho do Node.js deve incluir o caminho para o executável node.
-
-    A partir daí é só executar os mesmos códigos do erro abaixo e rodar o programa
-
-3. Problemas com o vite:
-
-   Quando rodar o projeto e se deparar com a seguinte mensagem de erro : "laravel-vite-plugin/inertia-helpers"execute os comandos abaixo:
-
-    npm install --save-dev vite laravel-vite-plugin
-    npm install --save-dev @vitejs/plugin-vue
-
-   É preciso atualizar o package.json:
-
-    "scripts": {
-       "dev": "vite",
-       "build": "vite build"
-   }
-
-   Finalmente, voce pode acionar este comando abaixo para construir o Vite e criar o arquivo de manifesto.
-
-       npm run build
-
-   Feito isso, se a pagina desenvolvida com o Vite nao puxar o CSS implementado abra dois terminais distintos no VS Code através do comando CRTL + ' e no primeiro terminal execute:
-   
+    ```bash
        npm run dev
 
-   E no segundo terminal execute:
-   
        php artisan serve
-
-
-
-Em caso de erro no banco "Could not find driver":
-
-    Digite no cmd: php -i | find /i "Configuration file"
+    ```
+       
+4. Erro no banco de dados "Could not find driver" (MySQL):
     
-    E descomente a estensão: ;extension=pdo_mysql
+    *No CMD:*
 
-## Wireframe
+    ```bash
+       php -i | find /i "Configuration file"
+    ```
+    
+    *Descomente a extensão:* 
 
-![image](https://github.com/PedroDSouza/CRUD/assets/99222688/c85c7342-a38f-488f-a5cc-098f0c75c7fb)
+    ```bash
+       ;extension=pdo_mysql
+    ```
+
+## Configurando o banco de dados com o Laravel
+
+1. Crie um banco de dados e faça a conexão com o Laravel: 
+    
+    *No XAMPP:*
+    ```bash
+    Iniciar -> Apache, o MySQL e abrir o Admin
+    ```
+- Criar um novo banco
+- Configurar as informações do banco no arquivo `.env` e fazer a conexão.
+
+    *A partir da linha 11 nessa sequência:*
+    ```bash
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=laravel 
+    DB_USERNAME=root
+    DB_PASSWORD= 
+    ```
+
+*Por padrão o Laravel usa o MySQL mas caso você use outro banco altere todas as informações necessárias.*
+
+## Enviando as tabelas para o banco de dados
+
+As tabelas já estão criadas dentro do projeto, use este comando para inseri-lás no banco:
+
+```bash
+  php artisan migrate
+```
+
+Pronto, agora basta olhar no banco de dados criado anteriormente e verá todas as tabelas inseridas nele.
 
 
 ## Integrantes do Grupo:
 
-CARLOS ALBERTO SIQUEIRA SILVA - GU3022293
+#### Scrum Master
 
-LUAN CAVALCANTI MORAIS - GU302119X - Scrum Master
+[@luanmorays](https://github.com/luanmorays) LUAN CAVALCANTI MORAIS — GU302119X
 
-LUCAS BATISTA CAVALCANTE - GU3003647
+#### Product Owner
 
-NICOLE DOS SANTOS MORAIS - GU3020975 
+[@victorxmdev](https://github.com/victorxmdev) VICTOR GABRIEL SANTOS MAGALHAES — GU3020371
 
-PEDRO HENRIQUE OLIVEIRA DE SOUZA - GU300161X
+#### Front-end Development Team 
 
-VICTOR FREIRES ALMEIDA DE ARRUDA - GU3020002
+[@]() CARLOS ALBERTO SIQUEIRA SILVA — GU3022293
 
-VICTOR GABRIEL SANTOS MAGALHAES - GU3020371 - Product Owner
+[@eulucasbatista](https://github.com/eulucasbatista) LUCAS BATISTA CAVALCANTE — GU3003647
+
+[@nicolemorais](https://github.com/nicolemorais) NICOLE DOS SANTOS MORAIS — GU3020975
+
+
+#### Back-end Development Team
+
+[@PedroDSouza](https://github.com/PedroDSouza) PEDRO HENRIQUE OLIVEIRA DE SOUZA — GU300161X
+
+[@]() VICTOR FREIRES ALMEIDA DE ARRUDA — GU3020002
+
+

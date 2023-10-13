@@ -1,96 +1,66 @@
-@extends('master')
+<x-app-layout>
+    <x-slot name="header">
+        <div>
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                {{ __('Transações') }}
+            </h2>
+        </div>
+    </x-slot>
 
-@section('content')
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="grid flex-wrap gap-x-10 items-center justify-center grid-cols-1 mx-auto shadow-xl lg:grid-cols-2 rounded-xl  bg-gray-50 p-6 text-gray-900">
 
-<div class="h-screen w-screen bg-blue-950">
 
-  <div class="container flex w-full p-4  px-0 justify-left items-start antialiased">
-    <div class="text-white">
-      <p class="text-xl font-bold">Transações<p>
-      <p class="text-sm">Conduza seu futuro financeiro:<p>
+                    <div class="hidden lg:block w-full sm:max-w-md  overflow-hidden sm:rounded-lg">
+                        <img class="object-cover h-full bg-cover rounded-l-lg" src="./images/imgTransacao.svg" alt="">
+                    </div>
+
+
+                    <div class="px-3 py-3">
+                        <div class="w-full sm:max-w-md px-8 py-4 shadow-md overflow-hidden sm:rounded-lg rounded-lg" style="background: linear-gradient(266deg, rgba(34,149,150,1) 0%, rgba(131,218,160,1) 86%);">
+                            <!-- Form -->
+                            <div class="mt-6 space-y-1">
+
+                                <form method="POST" action="{{ route('transacao')}}">
+                                    @csrf
+                             
+                                    <!-- Tipo de transação -->
+                                    <div class="mb-2">
+                                        <x-input-label for="tipoTransacao" :value="__('Tipo de Transação')" />
+                                        <x-text-input id="tipoTransacao" class="block mt-1 w-full" type="text" name="tipoTransacao" :value="old('tipoTransacao')" required autofocus autocomplete="tipoTransacao" />
+                                        <x-input-error :messages="$errors->get('tipoTransacao')" class="mt-2" />
+                                    </div>
+
+                                    <!-- Quantidade -->
+                                    <div class="mb-2">
+                                        <x-input-label for="quantidade" :value="__('Quantidade')" />
+                                        <x-text-input id="quantidade" class="block mt-1 w-full" type="text" name="quantidade" :value="old('quantidade')" required autofocus autocomplete="quantidade" />
+                                        <x-input-error :messages="$errors->get('quantidade')" class="mt-2" />
+                                    </div>
+
+                                    <!-- Preço por unidade -->
+                                    <div class="mb-2">
+                                        <x-input-label for="valorAtivo" :value="__('Preço (Unidade)')" />
+                                        <x-text-input id="valorAtivo" class="block mt-1 w-full" type="text" name="valorAtivo" :value="old('valorAtivo')" required autofocus autocomplete="valorAtivo" />
+                                        <x-input-error :messages="$errors->get('valorAtivo')" class="mt-2" />
+                                    </div>
+
+                                     <!-- Botão -->
+                                     <div class="flex items-center justify-center py-10">
+                                        <x-secondary-button>
+                                            {{ __('Fazer transação') }}
+                                        </x-secondary-button>
+                                    </div>
+                                    
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-
-  <div class="flex  h-3/4  items-center lg:gap-56  bg-slate-200 border rounded-lg md:shrink-0 md:container md:mx-auto">
-
-      <img src="/img/woman-office.svg" class="object-scale-down w-auto h-full" alt="">
-
-        <form class="shadow-md col-4 rounded px-8 py-3  text-base md:shrink-0 antialiased bg-[#687190]">
-          <div class="mb-2">
-            <label class="block  text-white font-medium mb-2" for="ativoID ">
-              Selecione um ativo
-            </label>
-            <select
-              class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="ativoID"
-              name="ativoID"
-            >
-              <option value="1"></option>
-              <option value="2">Ativo 2</option>
-              <option value="3">Ativo 3</option>
-            </select>
-          </div>
-          <div class="mb-2">
-            <label class="block text-white font-medium mb-2" for="ativoID">
-              Tipo de transação
-            </label>
-            <select
-              class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="ativoID"
-              name="ativoID">
-              <option value="1"></option>
-              <option value="2">Transação 2</option>
-              <option value="3">Transação 3</option>
-            </select>
-          </div>
-          <div class="mb-2">
-            <label class="block text-white  font-medium mb-2" for="quantidade">
-              Quantidade
-            </label>
-            <input
-              class=" appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="quantidade"
-              type="number"
-              name="quantidade"
-              value=""
-            />
-          </div>
-          <div class="mb-2">
-            <label class="block text-white font-medium mb-2" for="precoPorUnidade">
-              Preço (Unidade)
-            </label>
-            <input
-              class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="precoPorUnidade"
-              type="number"
-              name="precoPorUnidade"
-              value=""
-            />
-          </div>
-          <div class="flex items-center justify-center mt-4  font-medium">
-          <a href="/investidor"
-            class="px-4 py-2 rounded-full  text-white bg-blue-950 hover:bg-blue-900 focus:outline-none focus:shadow-outline rounded-full"
-            type="submit"
-            >
-            Mostrar carteira
-    </a>
-    
-          </div>
-        </form>
-
-
-
-  </div>
-
-
-
-
-  
-
-</div>
-
-
-
-@endsection
-
-
+</x-app-layout>
