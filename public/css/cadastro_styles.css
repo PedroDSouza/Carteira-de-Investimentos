@@ -1,0 +1,109 @@
+.font-family-padrao {
+    font-family: Source Sans Pro;
+}
+.font-family-p {
+    font-family: Inter;
+    font-size: 25px;
+    font-weight: bold;
+}
+.flexbutton {
+    gap: 1rem;
+    justify-content: center;
+}
+
+.flexbutton input{
+    border-radius: 5px;
+}
+
+.bgwhite{
+    background-color:white;
+    height: 600px;
+    width: 600px;
+    position: relative;
+    left:200px;
+    display: grid;
+    place-items: center;
+    border-radius: 15px;
+}
+.formtop{
+    position: relative;
+    top: -100px;
+    margin-top: 0;
+    z-index: 1;
+}
+body{
+    background-image: url(./img/cadastro.png);
+    background-color: #D7E8EE;
+    background-repeat: no-repeat;
+    background-position: left 100px top;
+}
+.cadastroright{
+    position: relative;
+    display: grid;
+    place-items: center;
+    left: 300px;
+    top: -600px;
+}
+.formtop{
+    position: relative;
+    margin-top: 100px;
+    z-index: 1;
+    right:40px;
+}
+
+.divcad{
+    width: 400px;
+    left: -10px;
+}
+.formleft{
+    width: Fixed (477px);
+    height: Fixed (402px);
+    top: 153px;
+    left: 654px;
+    border-radius: 18px;
+    border: 1px;
+    gap: 16px;
+    margin-top: 36px;
+
+}
+
+.bgblue{
+    background-color: #161F6D; 
+    height: 40px; 
+    width: 166px;
+}
+
+.fntbold{
+    
+    font-weight: bold;
+}
+
+.img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    width: 1147px;
+    height: 762px;
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    margin-top: -381px; 
+    margin-left: -573px; 
+    border-radius: 12px;
+    background-color: #D7E8EE;
+}
+
+
+.ing{
+    width: 604px;
+    height: 747px;
+    top: 15px;
+    left: 22px;
+}
+
+label {
+    white-space: nowrap;
+  }

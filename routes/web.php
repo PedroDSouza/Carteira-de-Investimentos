@@ -31,6 +31,16 @@ Route::get('/transação', function () {
 })->middleware(['auth', 'verified'])->name('transacao');
 
 
+//Rotas da API (Ela deve suportar os métodos GET para abrir, e POST para pesquisar os preços)
+Route::get('/api', function () {
+    return view('api');
+})->middleware(['auth', 'verified'])->name('api');;
+
+Route::post('/api', function () {
+        return view('api');
+})->middleware(['auth', 'verified'])->name('api');;
+//-------------------------------------------------------------------------------------------
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

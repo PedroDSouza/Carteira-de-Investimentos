@@ -1,0 +1,122 @@
+body {
+    font-family: 'Source Sans 3', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F7B955;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.sidebar {
+    width: 10%;
+    background-color: white;
+    color: black;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 95vh;
+    
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: black;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.sidebar a:hover {
+    transition: background-color 0.3s ease;
+    background-color: #ffa600c0;
+    transition: transform 0.2s ease-in-out; 
+    transform: scale(1.05);
+}
+
+.content-container {
+    width: 80%; 
+    height: 50%;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #f0f0f0;
+    justify-content: space-between;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.content {
+    flex: 1;
+}
+
+.icon {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.sub-container {
+    width: 40%;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    padding: 10px;
+    margin-left: 20px;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    position: relative;
+}
+
+.top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+h3 {
+    margin: 0;
+}
+
+.add-button {
+    background-color:  #3320A0;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 15px;
+    cursor: pointer;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.9);
+    transition: background-color 0.3s ease;
+}
+
+.add-button:hover {
+    background-color: #4737A0;
+}
+
+.item1 {
+    background-color: #F7B955;
+    border-radius: 20px;
+    padding: 15px;
+}
+
+.left-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.custom-container {
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    transition: transform 0.2s ease; 
+}
+
+.custom-container:hover {
+    transform: scale(1.05);
+}
