@@ -53,11 +53,19 @@
                                         <x-input-error :messages="$errors->get('valorAtivo')" class="mt-2" />
                                     </div>
 
-                                    <!-- Botão -->
-                                    <div class="flex items-center justify-center py-10">
+                                    <!-- Botões -->
+                                    <div class="flex items-center justify-center py-2">
                                         <x-secondary-button>
                                             {{ __('Criar ativo') }}
                                         </x-secondary-button>
+                                    </div>
+
+                                    <div class="flex items-center justify-center py-2">
+                                        <a href="{{ route('api') }}">
+                                            <x-secondary-button>
+                                                {{ __('Buscar ação') }}
+                                            </x-secondary-button>
+                                        </a>
                                     </div>
                                     
                                 </form>

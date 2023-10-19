@@ -49,13 +49,14 @@
 
         .form-control select {
             width: 100%;
+            margin-bottom: 20px;
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
         }
 
         .btn {
-            background-color: #007bff;
+            background-color: #186933;
             color: #fff;
             border: none;
             padding: 10px 20px;
@@ -109,6 +110,11 @@
         .card-info-item p {
             font-size: 14px;
         }
+        .link{
+            font-size: 14px;
+            color:rgb(100, 100, 100);
+            hover:rgb(122, 124, 122); 
+        }
     </style>
 </head>
 <body>
@@ -116,7 +122,7 @@
     <div class="container">
         <div class="card">
             <div class="header">
-                <img src="../images/logo.svg" style="max-width:100px" draggable="false">
+                <a href="{{ route('ativo') }}"> <img src="../images/logo.svg" style="max-width:80px" draggable="false"></a>
                 <h2>Buscar Ação</h2>
             </div>
             <div class="body">
@@ -133,6 +139,13 @@
                     </select>
                     <br>
                     <button type="submit" class="btn btn-primary">Buscar</button>
+                    <br>
+
+                    @if (Route::has('ativo'))
+                    <a class="link" href="{{ route('ativo') }}">
+                        {{ __('Voltar para ativos') }}
+                    </a>
+                    @endif
                 </form>
 
 
@@ -219,6 +232,7 @@
                     <?php } ?>
                 </div>
             </div>
+            
         </div>
     </div>
 
