@@ -1,3 +1,83 @@
+<?php
+$hostname = "localhost";
+$username = "root";
+$password = "masterkey";
+$database = "carteira";
+
+$mysqli = new mysqli($hostname, $username, $password, $database);
+
+if ($mysqli->connect_error) {
+    die("Erro ao conectar ao Banco de Dados: " . $mysqli->connect_error);
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $acoes = array();
+
+    if (isset($_POST['codigo'])) {
+        $acao = "";
+        $stockPrice = 0.0;
+
+        $novoCodigo = strtoupper($_POST['codigo']);
+        $novoCodigo = filter_var($novoCodigo, FILTER_SANITIZE_STRING);
+
+        if (!in_array($novoCodigo, $acoes)) {
+            $acoes[] = $novoCodigo;
+        } else {
+            $alerta = "Ação já existente";
+        }
+    }
+
+    foreach ($acoes as $acao) {
+        $url = 'https://www.google.com/finance/quote/' . strtoupper($acao) . ':' . $_POST['bolsa'];
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $resposta = curl_exec($ch);
+
+        if ($resposta === false) {
+            die('Erro ao buscar os valores das ações.');
+        }
+
+        curl_close($ch);
+
+        $pattern = '/<div class="YMlKec fxKbKc">(.*?)<\/div>/s'; // Exato código da DIV usada pelo Google que contém o preço das ações!!!
+        if (preg_match($pattern, $resposta, $matches)) {
+            $stockPrice = $matches[1];
+            $stockPrice = str_replace('R$', '', $stockPrice);
+        } else {
+            echo 'Preço das ações de ' . $acao . ' não encontrado.<br>';
+            exit;
+        }
+
+        if ($resposta !== false) {
+
+            $acao = $acao;
+            $stockPrice = $stockPrice;
+
+            $sql = "INSERT INTO ativos_financeiros (nomeAtivo, valorAtivo) VALUES (?, ?)";
+            $stmt = $mysqli->prepare($sql);
+
+            if ($stmt === false) {
+                die("Erro na preparação da consulta: " . $mysqli->error);
+            }
+
+            $stmt->bind_param("ss", $acao, $stockPrice);
+
+            if ($stmt->execute()) {
+                
+                header('Location: /dashboard');
+                exit;
+
+            } else {
+                echo "Erro ao inserir valores: " . $stmt->error;
+            }
+
+            $stmt->close();
+        }
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -8,6 +88,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3&display=swap" rel="stylesheet">
     <title>API de Ações</title>
     <style>
+         
        body {
             font-family: 'Source Sans Pro', sans-serif;
             margin: 0;
@@ -56,7 +137,11 @@
         }
 
         .btn {
+<<<<<<< HEAD
+            background-color: #24993B;
+=======
             background-color: #186933;
+>>>>>>> 243ff5241420bbf0bedc9382b2a2f4397c9e2caf
             color: #fff;
             border: none;
             padding: 10px 20px;
@@ -118,7 +203,6 @@
     </style>
 </head>
 <body>
-
     <div class="container">
         <div class="card">
             <div class="header">
@@ -147,94 +231,9 @@
                     </a>
                     @endif
                 </form>
-
-
-               <?php if ($_SERVER['REQUEST_METHOD'] === 'POST') {    ?>
-                <div class="table-responsive">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>Código</th>
-                                <th>Preço</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                           
-                            $acoes = array();
-
-
-                            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                               
-                                if (isset($_POST['codigo'])) {
-                                   
-                                    $novoCodigo = strtoupper($_POST['codigo']);
-
-                                    $novoCodigo = filter_var($novoCodigo, FILTER_SANITIZE_STRING);
-
-                                    if (!in_array($novoCodigo, $acoes)) {
-                                       
-                                        $acoes[] = $novoCodigo;
-                                    } else {
-                                        
-                                        $alerta = "Ação já existente";
-                                    }
-                                }
-                            }
-
-                            foreach ($acoes as $acao) {
-                                $url = 'https://www.google.com/finance/quote/' . strtoupper($acao) . ':' . $_POST['bolsa'];
-                        
-                                $ch = curl_init();
-                                curl_setopt($ch, CURLOPT_URL, $url);
-                                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-                        
-                                $resposta = curl_exec($ch);
-                        
-                                if ($resposta === false) {
-                                    die('Erro ao buscar os valores das ações.');
-                                }
-                        
-                                curl_close($ch);
-                        
-                                $pattern = '/<div class="YMlKec fxKbKc">(.*?)<\/div>/s'; //Exato código da DIV usada pelo Google que contém o preço das ações!!!
-                                if (preg_match($pattern, $resposta, $matches)) {
-                                    $stockPrice = $matches[1];
-                                    $stockPrice = str_replace('R$', '', $stockPrice);
-                        
-                                } else {
-                                    echo 'Preço das ações de ' . $acao . ' não encontrado.<br>';
-                                    exit;
-                                }
-
-
-                        if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($resposta <> false)) {
-
-                            echo '<tr>
-                            <td>' . $acao . '</td>
-                            <td>R$ ' . $stockPrice . '</td>
-                            </tr>';
-                        }
-                            
-
-                            }
-                        
-                       
-                            if (isset($alerta)) {
-                                echo '<tr>
-                                    <td colspan="2">' . $alerta . '</td>
-                                </tr>';
-                            }
-                            ?>
-                        </tbody>
-                    </table>
-
-                    <?php } ?>
-                </div>
             </div>
             
         </div>
     </div>
-
 </body>
 </html>
