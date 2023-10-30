@@ -31,7 +31,7 @@
                                         - Já as carteiras ao lado mostra todo o conteudo inseridos tanto do form de ativos quanto do form de transações (um model será criado para mostrar todo o conteúdo da carteira)
 
                                     -->
-                                    <canvas id="doughnutChart" width="800" height="400"></canvas>
+                                    <canvas id="doughnutChart" width="800" height="800"></canvas>
                                 <!-- Bar Chart Script -->
                                 <script>
 
