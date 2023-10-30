@@ -31,45 +31,54 @@
                                         - Já as carteiras ao lado mostra todo o conteudo inseridos tanto do form de ativos quanto do form de transações (um model será criado para mostrar todo o conteúdo da carteira)
 
                                     -->
-                                    <canvas id="doughnutChart" width="800" height="800"></canvas>
+                                    <canvas id="doughnutChart" width="800" height="550"></canvas>
                                 <!-- Bar Chart Script -->
                                 <script>
 
                                     // Dados dos ativos financeiros
 
-                                    const ativos = @json($ativos);
-                                    console.log(ativos);
-                                    // Extrair nomes e valores dos ativos para o gráfico
-                                    const nomesAtivos = ativos.map(ativo => ativo.nomeAtivo);
-                                    const valoresAtivos = ativos.map(ativo => ativo.valorAtivo);
+                                        const data = @json($data);
 
-                                    // Configurar o contexto do gráfico
-                                    const ctx = document.getElementById('doughnutChart').getContext('2d');
-
-                                    // Criar o gráfico de barras
-                                    new Chart(ctx, {
-                                        type: 'doughnut',
-                                        data: {
-                                            labels: nomesAtivos,
-                                            datasets: [{
-                                                label: 'ValorAtual',
-                                                data: valoresAtivos,
-                                                backgroundColor: 'rgba(54, 162, 235, 0.7)',
-                                                borderWidth: 1
-                                            }]
-                                        },
-                                        options: {
-                                            responsive: true,
-                                            scales: {
-                                                x: {
-                                                    beginAtZero: true
+                                        const ctx = document.getElementById('doughnutChart').getContext('2d');
+                                        new Chart(ctx, {
+                                            type: 'doughnut',
+                                            data: {
+                                                labels: data.map(item => item.name),
+                                                datasets: [{
+                                                    data: data.map(item => item.percentage),
+                                                    backgroundColor: [
+                                                        'rgb(255, 99, 132)',
+                                                        'rgb(54, 162, 235)',
+                                                        'rgb(255, 69, 0)',
+                                                        'rgb(255, 205, 86)',
+                                                        'rgb(106,90,205)',
+                                                        'rgb(0, 0, 139)'
+                                                        // Adicione mais cores conforme necessário
+                                                    ],
+                                                }]
+                                            },
+                                            options: {
+                                                responsive: true,
+                                                maintainAspectRatio: false,
+                                                plugins: {
+                                                    legend: {
+                                                        display: true,
+                                                        position: 'right',
+                                                    },
+                                                    datalabels: {
+                                                        display: true,
+                                                        color: '#fff',
+                                                        offset: 0,
+                                                        formatter: (value, context) => {
+                                                            return value.toFixed(2) + '%';
+                                                        },
+                                                        font: {
+                                                            weight: 'bold',
+                                                        },
+                                                    },
                                                 },
-                                                y: {
-                                                    beginAtZero: true
-                                                }
                                             }
-                                        }
-                                    });
+                                        });
                                 </script>
                             </div>
                         </div>

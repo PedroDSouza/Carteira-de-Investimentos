@@ -18,14 +18,14 @@ use Illuminate\Support\Facades\DB;
 */
 
 // rota para o Controller AtivosFinanceirosController
-//Route::get('dashboard', [AtivosFinanceirosController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('dashboard', [AtivosFinanceirosController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 
-Route::get('dashboard', function () {
-    $ativos = DB::table('ativos_financeiros')->get();
+//Route::get('dashboard', function () {
+//    $data = DB::table('ativos_financeiros')->get();
 
-     return view('dashboard', ["ativos" => $ativos]);
-})->middleware(['auth', 'verified'])->name('dashboard');
+//     return view('dashboard', ["data" => $data]);
+//})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/', function () {
     return view('auth.login');
