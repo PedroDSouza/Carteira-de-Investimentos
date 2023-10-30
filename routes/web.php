@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AtivosFinanceirosController;
+use Illuminate\Support\Facades\DB;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,13 +17,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// rota para o Controller AtivosFinanceirosController
+//Route::get('dashboard', [AtivosFinanceirosController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+
+
+Route::get('dashboard', function () {
+    $ativos = DB::table('ativos_financeiros')->get();
+
+     return view('dashboard', ["ativos" => $ativos]);
+})->middleware(['auth', 'verified'])->name('dashboard');
+
 Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+ //Route::get('/dashboard', function () {
+ //   return view('dashboard');
+//})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/ativo', function () {
     return view('ativo');
@@ -47,5 +60,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+
 
 require __DIR__.'/auth.php';
