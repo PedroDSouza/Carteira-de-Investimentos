@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AtivosFinanceirosController;
+use App\Http\Controllers\AtivoController;
 use Illuminate\Support\Facades\DB;
 
 
@@ -20,7 +21,6 @@ use Illuminate\Support\Facades\DB;
 // rota para o Controller AtivosFinanceirosController
 Route::get('dashboard', [AtivosFinanceirosController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
-
 //Route::get('dashboard', function () {
 //    $data = DB::table('ativos_financeiros')->get();
 
@@ -35,9 +35,11 @@ Route::get('/', function () {
  //   return view('dashboard');
 //})->middleware(['auth', 'verified'])->name('dashboard');
 
+
 Route::get('/ativo', function () {
     return view('ativo');
 })->middleware(['auth', 'verified'])->name('ativo');
+
 
 Route::get('/transação', function () {
     return view('transacao');

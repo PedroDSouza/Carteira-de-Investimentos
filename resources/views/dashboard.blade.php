@@ -34,7 +34,6 @@
                                     <canvas id="doughnutChart" width="800" height="550"></canvas>
                                 <!-- Bar Chart Script -->
                                 <script>
-
                                     // Dados dos ativos financeiros
 
                                         const data = @json($data);

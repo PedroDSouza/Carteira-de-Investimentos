@@ -22,7 +22,7 @@
                             <!-- Form -->
                             <div class="mt-6 space-y-1">
 
-                                <form method="POST" action="{{ route('ativo')}}">
+                                <form method="GET" action="{{ route('ativo') }}">
                                     @csrf
 
                                     <!-- Nome do ativo -->
@@ -55,7 +55,7 @@
 
                                     <!-- Botões -->
                                     <div class="flex items-center justify-center py-2">
-                                        <x-secondary-button>
+                                        <x-secondary-button type="submit">
                                             {{ __('Criar ativo') }}
                                         </x-secondary-button>
                                     </div>
