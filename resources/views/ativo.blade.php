@@ -22,7 +22,7 @@
                             <!-- Form -->
                             <div class="mt-6 space-y-1">
 
-                                <form method="POST" action="{{ route('ativo')}}">
+                                <form method="GET" action="{{ route('criarativo') }}">
                                     @csrf
 
                                     <!-- Nome do ativo -->
@@ -55,10 +55,12 @@
 
                                     <!-- Botões -->
                                     <div class="flex items-center justify-center py-2">
-                                        <x-secondary-button>
+                                        <x-secondary-button type="submit">
                                             {{ __('Criar ativo') }}
                                         </x-secondary-button>
                                     </div>
+
+                                    
 
                                     <div class="flex items-center justify-center py-2">
                                         <a href="{{ route('api') }}">
@@ -69,7 +71,62 @@
                                     </div>
                                     
                                 </form>
+                                <form method="POST" action="{{ route('editarativo') }}">
+    @csrf
 
+
+    <div class="mb-2">
+        <x-input-label for="nomeAtivoEditar" :value="__('Nome do ativo a editar')" />
+        <x-text-input id="nomeAtivoEditar" class="block mt-1 w-full" type="text" name="nomeAtivoEditar" required />
+    </div>
+
+
+    <div class="mb-2">
+        <x-input-label for="novoNomeAtivo" :value="__('Novo nome do ativo')" />
+        <x-text-input id="novoNomeAtivo" class="block mt-1 w-full" type="text" name="novoNomeAtivo" required />
+    </div>
+
+    <div class="mb-2">
+        <x-input-label for="tipoAtivoEditar" :value="__('Tipo de ativo')" />
+        <x-text-input id="tipoAtivoEditar" class="block mt-1 w-full" type="text" name="tipoAtivoEditar" required />
+    </div>
+
+    <div class="mb-2">
+        <x-input-label for="descricaoAtivoEditar" :value="__('Descrição')" />
+        <x-text-input id="descricaoAtivoEditar" class="block mt-1 w-full" type="text" name="descricaoAtivoEditar" required />
+    </div>
+
+    <div class="mb-2">
+        <x-input-label for="valorAtivoEditar" :value="__('Valor')" />
+        <x-text-input id="valorAtivoEditar" class="block mt-1 w-full" type="text" name="valorAtivoEditar" required />
+    </div>
+
+
+    <div class="flex items-center justify-center py-2">
+        <x-secondary-button type="submit">
+            {{ __('Editar ativo') }}
+        </x-secondary-button>
+    </div>
+</form>
+
+
+                                
+                                  <form method="POST" action="{{ route('deletarativo') }}">
+                                    @csrf
+
+                
+                                    <div class="mb-2">
+                                        <x-input-label for="nomeAtivoDeletar" :value="__('Nome do ativo a deletar')" />
+                                        <x-text-input id="nomeAtivoDeletar" class="block mt-1 w-full" type="text" name="nomeAtivoDeletar" required />
+                                    </div>
+
+                                    <div class="flex items-center justify-center py-2">
+                                        <x-secondary-button type="submit">
+                                            {{ __('Deletar ativo') }}
+                                        </x-secondary-button>
+                                    </div>
+                                </form>
+                               
                             </div>
                         </div>
                     </div>
