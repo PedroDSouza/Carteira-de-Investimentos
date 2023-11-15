@@ -1,9 +1,9 @@
-<?php 
+<?php
 
 use Illuminate\Support\Facades\DB;
 $connection = DB::connection();
 
-$walletNames = DB::table('wallet')->where('id', 1)->pluck('nome'); //Usar o ID de cada respectiva carteira -Pedro de Souza
+$walletNames = DB::table('carteirausuario')->where('id', 1)->pluck('ativoid'); //Usar o ID de cada respectiva carteira -Pedro de Souza
 $total = DB::table('ativos_Financeiros')->sum('valorAtivo');
 
 $ativosFinanceiros = DB::table('ativos_Financeiros')
@@ -44,11 +44,6 @@ $ativosFinanceiros = DB::table('ativos_Financeiros')
 
 
                                 @endforeach
-
-
-
-
-
 
 
                                     <canvas id="doughnutChart" width="800" height="550"></canvas>
@@ -96,26 +91,26 @@ $ativosFinanceiros = DB::table('ativos_Financeiros')
                                                 },
                                             }
                                         });
-                                </script>         
+                                </script>
                             </div>
 
                             <div class="mt-6 space-y-1">
 
                                 @foreach ($ativosFinanceiros as $ativoFinanceiro)
-                                    
+
                                         <h1>{{ $ativoFinanceiro->nomeAtivo }}</h1>
                                         <h2>R$ {{ number_format($ativoFinanceiro->valorAtivo, 2, ',', '.') }}</h2>
-                                   
+
                                 @endforeach
 
                             </div>
-  
+
                         @php
 
                             echo '<p>Total da Carteira: R$' . number_format($total, 2, ',', '.') . '</p>';
-                    
+
                         @endphp
-                        
+
                         </div>
                     </div>
                 </div>
