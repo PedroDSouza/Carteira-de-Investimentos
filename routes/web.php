@@ -39,10 +39,9 @@ Route::get('/', function () {
 //})->middleware(['auth', 'verified'])->name('dashboard');
 
 
-
 Route::get('/ativo', function () {
     return view('ativo');
-})->middleware(['auth', 'verified'])->name('ativo'); 
+})->middleware(['auth', 'verified'])->name('ativo');
 
 Route::get('criarativo', [AtivoController::class, 'create'])->middleware(['auth', 'verified'])->name('criarativo');
 
@@ -50,17 +49,18 @@ Route::match(['get', 'post'], 'deletarativo', [AtivoController::class, 'destroy'
 
 Route::post('editarativo', [AtivoController::class, 'update'])->middleware(['auth', 'verified'])->name('editarativo');
 
-
-
-
 Route::get('/deletar', function () {
     return view('deletar');
-})->middleware(['auth', 'verified'])->name('deletar'); 
+})->middleware(['auth', 'verified'])->name('deletar');
 
 
 Route::get('/transação', function () {
     return view('transacao');
 })->middleware(['auth', 'verified'])->name('transacao');
+
+Route::get('/carteiras', function () {
+    return view('carteiras');
+})->middleware(['auth', 'verified'])->name('carteiras');
 
 
 //Rotas da API (Ela deve suportar os métodos GET para abrir, e POST para pesquisar os preços)
@@ -90,15 +90,11 @@ Route::post('/wallet/update-name', function(Request $request) {
 });
 
 
-
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
-
 
 
 require __DIR__.'/auth.php';
