@@ -2,7 +2,7 @@
     <x-slot name="header">
         <div>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('Transações') }}
+                {{ __('Carteiras') }}
             </h2>
         </div>
     </x-slot>
@@ -14,7 +14,7 @@
 
 
                     <div class="hidden lg:block w-full sm:max-w-md  overflow-hidden sm:rounded-lg">
-                        <img class="object-cover h-full bg-cover rounded-l-lg" src="./images/imgTransacao.svg" alt="">
+                        <img class="object-cover h-full bg-cover rounded-l-lg" src="./images/imgCarteira.svg" alt="">
                     </div>
 
 
@@ -23,12 +23,12 @@
                             <!-- Form -->
                             <div class="mt-6 space-y-1">
 
-                                <form method="POST" action="{{ route('transacao')}}">
+                                <form method="POST" action="{{ route('carteiras')}}">
                                     @csrf
 
                                     <!-- Tipo de transação -->
                                     <div class="mb-2">
-                                        <x-input-label for="tipoTransacao" :value="__('Tipo de Transação')" />
+                                        <x-input-label for="tipoTransacao" :value="__('Tipo de Carteira')" />
                                         <x-text-input id="tipoTransacao" class="block mt-1 w-full" type="text" name="tipoTransacao" :value="old('tipoTransacao')" required autofocus autocomplete="tipoTransacao" />
                                         <x-input-error :messages="$errors->get('tipoTransacao')" class="mt-2" />
                                     </div>
@@ -50,7 +50,7 @@
                                      <!-- Botão -->
                                      <div class="flex items-center justify-center py-10">
                                         <x-secondary-button>
-                                            {{ __('Fazer transação') }}
+                                            {{ __('Criar Carteira') }}
                                         </x-secondary-button>
                                     </div>
 
