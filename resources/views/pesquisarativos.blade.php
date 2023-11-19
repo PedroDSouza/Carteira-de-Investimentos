@@ -41,6 +41,8 @@
                                         </x-secondary-button>
                                     </div>
 
+                                        </div>
+                                    </div>
                                 </form>
                             </div>
                         </div>

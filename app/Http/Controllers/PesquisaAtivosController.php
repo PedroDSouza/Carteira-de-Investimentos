@@ -16,6 +16,7 @@ class PesquisaAtivosController extends Controller
 
     public function store(Request $request)
     {
+        $mensagem = '';
         $acoes = [];
 
         if ($request->has('codigo')) {
@@ -62,6 +63,6 @@ class PesquisaAtivosController extends Controller
             }
         }
 
-        return view('pesquisarativos', compact('mensagem'));
+        return view('pesquisarativos')->with('mensagem', $mensagem);
     }
 }

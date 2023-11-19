@@ -212,7 +212,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     @endif
                 </form>
             </div>
-
         </div>
     </div>
 </body>
