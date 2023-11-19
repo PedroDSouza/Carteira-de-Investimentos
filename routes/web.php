@@ -62,6 +62,10 @@ Route::get('/carteiras', function () {
     return view('carteiras');
 })->middleware(['auth', 'verified'])->name('carteiras');
 
+Route::get('/pesquisarativos', function () {
+    return view('pesquisarativos');
+})->middleware(['auth', 'verified'])->name('pesquisarativos');
+
 
 //Rotas da API (Ela deve suportar os métodos GET para abrir, e POST para pesquisar os preços)
 Route::get('/api',function () {

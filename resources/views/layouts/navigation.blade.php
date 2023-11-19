@@ -34,6 +34,12 @@
                         {{ __('Transações') }}
                     </x-nav-link>
                 </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('pesquisarativos')" :active="request()->routeIs('pesquisarativos')">
+                        {{ __('Pesquisar Ativos') }}
+                    </x-nav-link>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->
@@ -59,7 +65,6 @@
 
                          <!-- Carteiras -->
                          <x-dropdown-link :href="route('carteiras')">Carteiras</x-dropdown-link>
-
 
                          <!-- Authentication -->
                          <form method="POST" action="{{ route('logout') }}">
