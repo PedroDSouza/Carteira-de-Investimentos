@@ -1,5 +1,5 @@
 <?php
-use Illuminate\Support\Facades\DB; 
+use Illuminate\Support\Facades\DB;
 
 $mensagem = '';
 
@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (preg_match($pattern, $resposta, $matches)) {
             $stockPrice = $matches[1];
             $stockPrice = str_replace('R$', '', $stockPrice);
-            
+
             DB::table('ativos_financeiros')->insert([
                 'nomeAtivo' => $acao,
                 'valorAtivo' => $stockPrice,
@@ -48,9 +48,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
         } else {
-          
+
             $mensagem = "Preço das Ações Não encontrado!";
-           
+
         }
 
     }
@@ -67,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3&display=swap" rel="stylesheet">
     <title>API de Ações</title>
     <style>
-         
+
        body {
             font-family: 'Source Sans Pro', sans-serif;
             margin: 0;
@@ -116,11 +116,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         .btn {
-<<<<<<< HEAD
             background-color: #24993B;
-=======
             background-color: #186933;
->>>>>>> 243ff5241420bbf0bedc9382b2a2f4397c9e2caf
             color: #fff;
             border: none;
             padding: 10px 20px;
@@ -177,7 +174,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         .link{
             font-size: 14px;
             color:rgb(100, 100, 100);
-            hover:rgb(122, 124, 122); 
+            hover:rgb(122, 124, 122);
         }
     </style>
 </head>
@@ -204,9 +201,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <button type="submit" class="btn btn-primary">Buscar</button>
                     <br>
                     <div class="mensagem">
-                
+
                         <p class="mensagem"><?php echo $mensagem; ?></p>
-                    
+
                     </div>
                     @if (Route::has('ativo'))
                     <a class="link" href="{{ route('ativo') }}">
@@ -215,7 +212,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     @endif
                 </form>
             </div>
-            
+
         </div>
     </div>
 </body>

@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AtivosFinanceirosController;
 use App\Http\Controllers\AtivoController;
+use App\Http\Controllers\PesquisaAtivosControllerController;
 use Illuminate\Support\Facades\DB;
 
 

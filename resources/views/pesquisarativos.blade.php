@@ -2,7 +2,7 @@
     <x-slot name="header">
         <div>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('Carteiras') }}
+                {{ __('Pesquisar Ativos') }}
             </h2>
         </div>
     </x-slot>
@@ -14,7 +14,7 @@
 
 
                     <div class="hidden lg:block w-full sm:max-w-md  overflow-hidden sm:rounded-lg">
-                        <img class="object-cover h-full bg-cover rounded-l-lg" src="./images/imgCarteira.svg" alt="Carteira">
+                        <img class="object-cover h-full bg-cover rounded-l-lg" src="./images/imgPesquisarAtivos.svg" alt="Carteira">
                     </div>
 
 
@@ -28,23 +28,16 @@
 
                                     <!-- Tipo de transação -->
                                     <div class="mb-2">
-                                        <x-input-label for="tipoCarteira" :value="__('Tipo de Carteira')" />
+                                        <x-input-label for="tipoCarteira" :value="__('Pesquisar Ativo')" />
                                         <x-text-input id="tipoCarteira" class="block mt-1 w-full" type="text" name="tipoCarteira" :value="old('tipoTransacao')" required autofocus autocomplete="tipoTransacao" />
                                         <x-input-error :messages="$errors->get('tipoCarteira')" class="mt-2" />
-                                    </div>
-
-                                    <!-- Quantidade de Carteiras-->
-                                    <div class="mb-2">
-                                        <x-input-label for="quantidade" :value="__('Quantidade')" />
-                                        <x-text-input id="quantidade" class="block mt-1 w-full" type="text" name="quantidade" :value="old('quantidade')" required autofocus autocomplete="quantidade" />
-                                        <x-input-error :messages="$errors->get('quantidade')" class="mt-2" />
                                     </div>
 
 
                                      <!-- Botão -->
                                      <div class="flex items-center justify-center py-10">
                                         <x-secondary-button>
-                                            {{ __('Criar Carteira') }}
+                                            {{ __('Pesquisar Ativo') }}
                                         </x-secondary-button>
                                     </div>
 
