@@ -33,14 +33,6 @@
                                         <x-input-error :messages="$errors->get('tipoCarteira')" class="mt-2" />
                                     </div>
 
-                                    <!-- Quantidade de Carteiras-->
-                                    <div class="mb-2">
-                                        <x-input-label for="quantidade" :value="__('Quantidade')" />
-                                        <x-text-input id="quantidade" class="block mt-1 w-full" type="text" name="quantidade" :value="old('quantidade')" required autofocus autocomplete="quantidade" />
-                                        <x-input-error :messages="$errors->get('quantidade')" class="mt-2" />
-                                    </div>
-
-
                                      <!-- Botão -->
                                      <div class="flex items-center justify-center py-10">
                                         <x-secondary-button>
