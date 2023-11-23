@@ -64,10 +64,13 @@ Route::get('/carteiras', function () {
    return view('carteiras');
 })->middleware(['auth', 'verified'])->name('carteiras');
 
+Route::get('/carteiras/create', [CarteiraController::class, 'create'])
+    ->middleware(['auth', 'verified'])
+    ->name('carteiras.create');
 
-Route::get('/carteiras/create', [CarteiraController::class, 'create'])->name('carteiras.create');
-Route::post('/carteiras', [CarteiraController::class, 'store'])->name('carteiras.store');
-
+Route::post('/carteiras', [CarteiraController::class, 'store'])
+    ->middleware(['auth', 'verified'])
+    ->name('carteiras.store');
 
 
 Route::get('/pesquisarativos', function () {

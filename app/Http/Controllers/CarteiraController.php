@@ -20,9 +20,8 @@ class CarteiraController extends Controller
 
         CarteiraUsuario::create([
             'NomeCarteira' => $request->NomeCarteira,
-            // Outros campos, se houver
         ]);
 
-        return redirect()->route('carteiras');
+        return redirect()->route('carteiras.create')->with('success', 'Carteira criada com sucesso!');
     }
 }
