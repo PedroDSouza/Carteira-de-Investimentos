@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AtivosFinanceirosController;
 use App\Http\Controllers\AtivoController;
+use App\Http\Controllers\CarteiraController;
 use App\Http\Controllers\PesquisaAtivosControllerController;
 use Illuminate\Support\Facades\DB;
 
@@ -60,8 +61,14 @@ Route::get('/transação', function () {
 })->middleware(['auth', 'verified'])->name('transacao');
 
 Route::get('/carteiras', function () {
-    return view('carteiras');
+   return view('carteiras');
 })->middleware(['auth', 'verified'])->name('carteiras');
+
+
+Route::get('/carteiras/create', [CarteiraController::class, 'create'])->name('carteiras.create');
+Route::post('/carteiras', [CarteiraController::class, 'store'])->name('carteiras.store');
+
+
 
 Route::get('/pesquisarativos', function () {
     return view('pesquisarativos');

@@ -28,9 +28,9 @@
 
                                     <!-- Tipo de transação -->
                                     <div class="mb-2">
-                                        <x-input-label for="tipoCarteira" :value="__('Nome da Carteira')" />
-                                        <x-text-input id="tipoCarteira" class="block mt-1 w-full" type="text" name="tipoCarteira" :value="old('tipoTransacao')" required autofocus autocomplete="tipoTransacao" />
-                                        <x-input-error :messages="$errors->get('tipoCarteira')" class="mt-2" />
+                                        <x-input-label for="NomeCarteira" :value="__('Nome da Carteira')" />
+                                        <x-text-input id="NomeCarteira" class="block mt-1 w-full" type="text" name="NomeCarteira" :value="old('NomeCarteira')" required autofocus autocomplete="NomeCarteira" />
+                                        <x-input-error :messages="$errors->get('NomeCarteira')" class="mt-2" />
                                     </div>
 
                                      <!-- Botão -->
