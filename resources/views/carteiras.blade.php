@@ -27,20 +27,26 @@
                                     </div>
                                 @endif
 
-                                <form method="POST" action="{{ route('carteiras.store')}}">
+                                <form method="POST" action="{{ route('carteiras')}}">
                                     @csrf
                                     @method('POST')
 
-                                    <!-- Tipo de transação -->
+                                    <!-- Nome Carteira-->
                                     <div class="mb-2">
                                         <x-input-label for="NomeCarteira" :value="__('Nome da Carteira')" />
                                         <x-text-input id="NomeCarteira" class="block mt-1 w-full" type="text" name="NomeCarteira" :value="old('NomeCarteira')" required autofocus autocomplete="NomeCarteira" />
                                         <x-input-error :messages="$errors->get('NomeCarteira')" class="mt-2" />
                                     </div>
 
+                                    <div class="mb-2">
+                                        <x-input-label for="AtivoID" :value="__('Ativo ID')" />
+                                        <x-text-input id="AtivoID" class="block mt-1 w-full" type="text" name="AtivoID" :value="old('AtivoID')" required autofocus autocomplete="AtivoID" />
+                                        <x-input-error :messages="$errors->get('AtivoID')" class="mt-2" />
+                                    </div>
+
                                     <!-- Botão -->
                                     <div class="flex items-center justify-center py-10">
-                                        <x-secondary-button>
+                                        <x-secondary-button type="submit">
                                             {{ __('Criar Carteira') }}
                                         </x-secondary-button>
                                     </div>

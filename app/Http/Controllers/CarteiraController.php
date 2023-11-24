@@ -2,17 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Carteira; // Certifique-se de ajustar o namespace conforme a estrutura do seu projeto
 use App\Models\CarteiraUsuario;
+use Illuminate\Http\Request;
 
 class CarteiraController extends Controller
 {
-    public function create()
-    {
-        return view('carteiras');
-    }
-
-    public function store(Request $request)
+    public function create(Request $request)
     {
         $request->validate([
             'NomeCarteira' => 'required|string|max:255',
@@ -20,8 +16,11 @@ class CarteiraController extends Controller
 
         CarteiraUsuario::create([
             'NomeCarteira' => $request->NomeCarteira,
+            'UsuarioID' => auth()->id(),
+            'AtivoID' => $request->AtivoID,
+            'QuantidadeAtivo' => 1
         ]);
 
-        return redirect()->route('carteiras.create')->with('success', 'Carteira criada com sucesso!');
+        return redirect()->route('carteiras')->with('success', 'Carteira criada com sucesso!');
     }
 }

@@ -9,9 +9,16 @@ class CarteiraUsuario extends Model
 {
     use HasFactory;
 
+
+
     protected $table = 'carteirausuario';
+
+    public $timestamps = false;
 
     protected $fillable = [
         'NomeCarteira',
+        'UsuarioID',
+        'AtivoID',
+        'QuantidadeAtivo'
     ];
 }
