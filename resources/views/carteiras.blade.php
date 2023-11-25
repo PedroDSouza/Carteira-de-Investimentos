@@ -22,7 +22,7 @@
                             <!-- Form -->
                             <div class="mt-6 space-y-1">
                                 @if(session('success'))
-                                    <div class="mb-2 text-green-500">
+                                    <div class="mb-2 text-white">
                                         {{ session('success') }}
                                     </div>
                                 @endif
