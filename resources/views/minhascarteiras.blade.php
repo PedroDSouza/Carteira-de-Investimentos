@@ -18,21 +18,22 @@
 
                     <div class="px-3 py-3">
                         <div class="w-full sm:max-w-md px-8 py-4 shadow-md overflow-hidden sm:rounded-lg rounded-lg"
-                            style="background: linear-gradient(266deg, rgba(34,149,150,1) 0%, rgba(131,218,160,1) 86%);">
-                            <!-- Form -->
-                            <div class="mt-6 space-y-1">
+                            style="background: linear-gradient(266deg, rgba(34,149,150,1) 0%, rgba(131,218,160,1) 86%);
+                                     text-white;">
+
+                            <div class="mt-6 space-y-1"  style="font color: #fff">
                                 @if(session('success'))
                                     <div class="mb-3 text-white">
                                         {{ session('success') }}
                                     </div>
                                 @endif
 
-                                <h1>Lista de Minhas Carteiras</h1>
+                                <h1 style="color: #fff">Lista de Minhas Carteiras</h1>
 
                                 @if(count($minhascarteiras) > 0)
-                                    <ul>
+                                    <ul style="color: #fff">
                                         @foreach($minhascarteiras as $minhascarteira)
-                                            <li>{{ $minhascarteira->NomeCarteira }}</li>
+                                            <li style="color: #fff" >{{ $minhascarteira->NomeCarteira }}</li>
                                         @endforeach
                                     </ul>
                                 @else
