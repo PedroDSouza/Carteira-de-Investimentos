@@ -28,7 +28,7 @@
                                     </div>
                                 @endif
 
-                                <h1 style="color: #fff">Lista de Minhas Carteiras</h1>
+                                <h1 style="font-weight: bold; color: #fff;">Lista de Minhas Carteiras</h1>
 
                                 @if(count($minhascarteiras) > 0)
                                     <ul style="color: #fff">
