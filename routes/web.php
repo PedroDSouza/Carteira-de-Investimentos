@@ -5,9 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AtivosFinanceirosController;
 use App\Http\Controllers\AtivoController;
 use App\Http\Controllers\CarteiraController;
+use App\Http\Controllers\MinhasCarteirasController;
 use App\Http\Controllers\PesquisaAtivosControllerController;
 use Illuminate\Support\Facades\DB;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -22,9 +22,6 @@ use Illuminate\Support\Facades\DB;
 
 // rota para o Controller AtivosFinanceirosController
 Route::get('dashboard', [AtivosFinanceirosController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
-
-
-
 
 //Route::get('dashboard', function () {
 //    $data = DB::table('ativos_financeiros')->get();
@@ -60,11 +57,21 @@ Route::get('/transação', function () {
     return view('transacao');
 })->middleware(['auth', 'verified'])->name('transacao');
 
+//Rotas para página de Criar Carteiras---------------------------------------------
 Route::get('/carteiras', function () {
    return view('carteiras');
 })->middleware(['auth', 'verified'])->name('carteiras');
 
 Route::post('/carteiras', [CarteiraController::class, 'create'])->name('carteiras');
+//---------------------------------------------------------------------------------
+
+//Rota para página - Minhas Carteiras---------------------
+//Route::get('/minhascarteiras', function () {
+//    return view('minhascarteiras');
+// })->middleware(['auth', 'verified'])->name('minhascarteiras');
+//------------------------------------------------------
+
+Route::get('/minhascarteiras', 'MinhasCarteirasController@index')->name('minhascarteiras');
 
 Route::get('/pesquisarativos', function () {
     return view('pesquisarativos');

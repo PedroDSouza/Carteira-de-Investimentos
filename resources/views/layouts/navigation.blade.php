@@ -63,8 +63,8 @@
                             {{ __('Profile') }}
                          </x-dropdown-link>
 
-                         <!-- Carteiras -->
-                         <x-dropdown-link :href="route('carteiras')">Carteiras</x-dropdown-link>
+                         <!-- Minhas Carteiras -->
+                         <x-dropdown-link :href="route('minhascarteiras')">Minhas Carteiras</x-dropdown-link>
 
                          <!-- Authentication -->
                          <form method="POST" action="{{ route('logout') }}">

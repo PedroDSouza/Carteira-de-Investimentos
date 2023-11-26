@@ -9,8 +9,6 @@ class CarteiraUsuario extends Model
 {
     use HasFactory;
 
-
-
     protected $table = 'carteirausuario';
 
     public $timestamps = false;

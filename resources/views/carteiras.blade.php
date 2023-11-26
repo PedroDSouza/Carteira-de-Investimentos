@@ -22,7 +22,7 @@
                             <!-- Form -->
                             <div class="mt-6 space-y-1">
                                 @if(session('success'))
-                                    <div class="mb-2 text-white">
+                                    <div class="mb-3 text-white">
                                         {{ session('success') }}
                                     </div>
                                 @endif
@@ -38,7 +38,7 @@
                                         <x-input-error :messages="$errors->get('NomeCarteira')" class="mt-2" />
                                     </div>
 
-                                    <div class="mb-2">
+                                   <div class="mb-2">
                                         <x-input-label for="AtivoID" :value="__('Ativo ID')" />
                                         <x-text-input id="AtivoID" class="block mt-1 w-full" type="text" name="AtivoID" :value="old('AtivoID')" required autofocus autocomplete="AtivoID" />
                                         <x-input-error :messages="$errors->get('AtivoID')" class="mt-2" />
