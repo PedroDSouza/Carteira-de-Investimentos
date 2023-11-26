@@ -13,7 +13,7 @@
                 <div class="grid flex-wrap gap-x-10 items-center justify-center grid-cols-1 mx-auto shadow-xl lg:grid-cols-2 rounded-xl bg-gray-50 p-6 text-gray-900">
 
                     <div class="hidden lg:block w-full sm:max-w-md overflow-hidden sm:rounded-lg">
-                        <img class="object-cover h-full bg-cover rounded-l-lg" src="./images/imgCarteira.svg" alt="Carteira">
+                        <img class="object-cover h-full bg-cover rounded-l-lg" src="./images/imgMinhasCarteiras.svg" alt="Carteira">
                     </div>
 
                     <div class="px-3 py-3">
