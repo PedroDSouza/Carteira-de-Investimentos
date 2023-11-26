@@ -39,7 +39,7 @@
                                     </div>
 
                                    <div class="mb-2">
-                                        <x-input-label for="AtivoID" :value="__('Ativo ID')" />
+                                        <x-input-label for="AtivoID" :value="__('Número da Carteira)" />
                                         <x-text-input id="AtivoID" class="block mt-1 w-full" type="text" name="AtivoID" :value="old('AtivoID')" required autofocus autocomplete="AtivoID" />
                                         <x-input-error :messages="$errors->get('AtivoID')" class="mt-2" />
                                     </div>
