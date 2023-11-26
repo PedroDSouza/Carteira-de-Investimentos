@@ -29,10 +29,10 @@
 
                                 <h1>Lista de Minhas Carteiras</h1>
 
-                                @if(count($carteiras) > 0)
+                                @if(count($minhascarteiras) > 0)
                                     <ul>
-                                        @foreach($carteiras as $carteira)
-                                            <li>{{ $carteira->NomeCarteira }}</li>
+                                        @foreach($minhascarteiras as $minhascarteira)
+                                            <li>{{ $minhascarteira->NomeCarteira }}</li>
                                         @endforeach
                                     </ul>
                                 @else

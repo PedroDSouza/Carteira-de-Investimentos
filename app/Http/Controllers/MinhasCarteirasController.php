@@ -9,8 +9,8 @@ class MinhasCarteirasController extends Controller
 {
     public function index()
     {
-        $carteiras = CarteiraUsuario::all();
+        $minhascarteiras = CarteiraUsuario::all();
 
-        return view('minhascarteiras', compact('carteiras'));
+        return view('minhascarteiras', compact('minhascarteiras'));
     }
 }

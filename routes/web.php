@@ -71,7 +71,7 @@ Route::post('/carteiras', [CarteiraController::class, 'create'])->name('carteira
 // })->middleware(['auth', 'verified'])->name('minhascarteiras');
 //------------------------------------------------------
 
-Route::get('/minhascarteiras', 'MinhasCarteirasController@index')->name('minhascarteiras');
+Route::get('minhascarteiras', [MinhasCarteirasController::class, 'index'])->name('minhascarteiras');
 
 Route::get('/pesquisarativos', function () {
     return view('pesquisarativos');
