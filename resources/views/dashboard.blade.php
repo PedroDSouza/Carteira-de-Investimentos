@@ -7,12 +7,56 @@ $walletNames = DB::table('carteirausuario')->where('id', 1)->pluck('ativoid'); /
 $total = DB::table('ativos_Financeiros')->sum('valorAtivo');
 
 $ativosFinanceiros = DB::table('ativos_Financeiros')
-    ->select('nomeAtivo', 'valorAtivo')
+->select('nomeAtivo', 'valorAtivo', 'tipoAtivo', 'descricaoAtivo')
     ->get();
-
 
 ?>
 
+<style>
+    /* Estilização do Modal */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.4);
+        padding-top: 60px;
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 5% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+    }
+
+    .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .carteira-ativos {
+        font-family: 'Arial', sans-serif;
+        font-size: 24px;
+        font-weight: bold;
+        color: black; 
+        text-transform: uppercase;
+    }
+</style>
 
 <x-app-layout>
     <x-slot name="header">
@@ -38,16 +82,111 @@ $ativosFinanceiros = DB::table('ativos_Financeiros')
 
                                 @foreach($walletNames as $name)
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <h1>{{ $name }}</h1>
+                                    <h1 class="carteira-ativos">Carteira {{ $name }}</h1>
+                                </div>
+                                @endforeach
+                                
 
+                                @foreach ($ativosFinanceiros as $ativoFinanceiro)
+                                    <div class="mb-4">
+                                        <h1>{{ $ativoFinanceiro->nomeAtivo }}</h1>
+                                        <h2>R$ {{ number_format($ativoFinanceiro->valorAtivo, 2, ',', '.') }}</h2>
+                                        
+                                        <!-- Botões de Editar e Excluir -->
+                                        <div class="flex space-x-2 mt-2">
+                                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="openEditModal('{{ $ativoFinanceiro->nomeAtivo }}', '{{ $ativoFinanceiro->tipoAtivo }}', '{{ $ativoFinanceiro->descricaoAtivo }}', '{{ $ativoFinanceiro->valorAtivo }}')">Editar</button>
+                                            <form method="POST" action="{{ route('deletarativo') }}">
+                                                @csrf
+                                                <input type="hidden" name="nomeAtivoDeletar" value="{{ $ativoFinanceiro->nomeAtivo }}">
+                                                <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Excluir</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                @endforeach
+                                
+                                <div id="editModal" class="modal">
+                                    <div class="modal-content">
+                                        <span class="close" onclick="closeModal('editModal')">&times;</span>
+                                        
+                                        <!-- Formulário de Edição de Ativo -->
+                                        <form method="POST" action="{{ route('editarativo') }}">                     
+                                            @csrf
+                                                                            
+                                            <div class="mb-2">
+                                                <x-input-label for="ativoParaEditar" :value="__('Ativo a editar')" />
+                                                <x-text-input id="ativoParaEditar" class="block mt-1 w-full" type="text" name="ativoParaEditar" readonly />
+                                            </div>
+                                
+                                            <!-- Título e campo para Nome do Ativo -->
+                                            <div class="mb-2">
+                                                <x-input-label for="nomeAtivoEditar" :value="__('Nome do ativo a editar')" />
+                                                <x-text-input id="nomeAtivoEditar" class="block mt-1 w-full" type="text" name="nomeAtivoEditar" placeholder="Insira o nome do ativo a editar" required />
+                                            </div>
+                                                                            
+                                            <!-- Título e campo para Novo Nome do Ativo -->
+                                            <div class="mb-2">
+                                                <x-input-label for="novoNomeAtivo" :value="__('Novo nome do ativo')" />
+                                                <x-text-input id="novoNomeAtivo" class="block mt-1 w-full" type="text" name="novoNomeAtivo" placeholder="Insira o novo nome do ativo" required />
+                                            </div>
+                                                                            
+                                            <!-- Título e campo para Tipo de Ativo -->
+                                            <div class="mb-2">
+                                                <x-input-label for="tipoAtivoEditar" :value="__('Tipo de ativo')" />
+                                                <x-text-input id="tipoAtivoEditar" class="block mt-1 w-full" type="text" name="tipoAtivoEditar" placeholder="Insira o tipo de ativo" required />
+                                            </div>
+                                                                            
+                                            <!-- Título e campo para Descrição do Ativo -->
+                                            <div class="mb-2">
+                                                <x-input-label for="descricaoAtivoEditar" :value="__('Descrição')" />
+                                                <x-text-input id="descricaoAtivoEditar" class="block mt-1 w-full" type="text" name="descricaoAtivoEditar" placeholder="Insira a descrição do ativo" required />
+                                            </div>
+                                                                            
+                                            <!-- Título e campo para Valor do Ativo -->
+                                            <div class="mb-2">
+                                                <x-input-label for="valorAtivoEditar" :value="__('Valor')" />
+                                                <x-text-input id="valorAtivoEditar" class="block mt-1 w-full" type="text" name="valorAtivoEditar" placeholder="Insira o valor do ativo" required />
+                                            </div>
+                                                                            
+                                            <div class="flex items-center justify-center py-2">
+                                                <x-secondary-button type="submit">
+                                                    {{ __('Editar ativo') }}
+                                                </x-secondary-button>
+                                            </div>
+                                        </form>
+                                
+                                        <!-- Botão para Deletar Ativo -->
+                                        <form method="POST" action="{{ route('deletarativo') }}">
+                                            @csrf
+                                            <div class="mb-2">
+                                                <x-input-label for="nomeAtivoDeletar" :value="__('Nome do ativo a deletar')" />
+                                                <x-text-input id="nomeAtivoDeletar" class="block mt-1 w-full" type="text" name="nomeAtivoDeletar" required />
+                                            </div>
+                                
+                                            <div class="flex items-center justify-center py-2">
+                                                <x-secondary-button type="submit">
+                                                    {{ __('Deletar ativo') }}
+                                                </x-secondary-button>
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
 
-
-                                @endforeach
-
-
                                     <canvas id="doughnutChart" width="800" height="550"></canvas>
-                                <script>
+                                <script> 
+                                    // Modal
+
+                                        function openEditModal(nomeAtivo, tipoAtivo, descricaoAtivo, valorAtivo) {
+                                            document.getElementById('ativoParaEditar').value = nomeAtivo;
+                                            document.getElementById('novoNomeAtivo').value = nomeAtivo;
+                                            document.getElementById('tipoAtivoEditar').value = tipoAtivo;
+                                            document.getElementById('descricaoAtivoEditar').value = descricaoAtivo;
+                                            document.getElementById('valorAtivoEditar').value = valorAtivo;
+                                            document.getElementById('editModal').style.display = 'block';
+                                        }
+
+                                        function closeModal(modalId) {
+                                            document.getElementById(modalId).style.display = 'none';
+                                        }
                                     // Dados dos ativos financeiros
 
                                         const data = @json($data);

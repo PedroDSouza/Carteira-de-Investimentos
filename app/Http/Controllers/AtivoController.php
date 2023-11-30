@@ -29,7 +29,6 @@ class AtivoController extends Controller
 
         return redirect()->route('ativo')->with('success', 'Ativo cadastrado com sucesso');
 
-
     }
 
 
