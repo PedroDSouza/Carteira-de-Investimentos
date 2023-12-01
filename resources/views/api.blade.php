@@ -1,14 +1,7 @@
 <?php
-$hostname = "localhost";
-$username = "root";
-$password = "masterkey";
-$database = "carteira";
+use Illuminate\Support\Facades\DB;
 
-$mysqli = new mysqli($hostname, $username, $password, $database);
-
-if ($mysqli->connect_error) {
-    die("Erro ao conectar ao Banco de Dados: " . $mysqli->connect_error);
-}
+$mensagem = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $acoes = array();
@@ -41,43 +34,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         curl_close($ch);
 
-        $pattern = '/<div class="YMlKec fxKbKc">(.*?)<\/div>/s'; // Exato código da DIV usada pelo Google que contém o preço das ações!!!
+        $pattern = '/<div class="YMlKec fxKbKc">(.*?)<\/div>/s';
         if (preg_match($pattern, $resposta, $matches)) {
             $stockPrice = $matches[1];
             $stockPrice = str_replace('R$', '', $stockPrice);
+
+            DB::table('ativos_financeiros')->insert([
+                'nomeAtivo' => $acao,
+                'valorAtivo' => $stockPrice,
+            ]);
+
+           $mensagem = "Ativo Cadastrado!";
+
+
         } else {
-            echo 'Preço das ações de ' . $acao . ' não encontrado.<br>';
-            exit;
+
+            $mensagem = "Preço das Ações Não encontrado!";
+
         }
 
-        if ($resposta !== false) {
-
-            $acao = $acao;
-            $stockPrice = $stockPrice;
-
-            $sql = "INSERT INTO ativos_financeiros (nomeAtivo, valorAtivo) VALUES (?, ?)";
-            $stmt = $mysqli->prepare($sql);
-
-            if ($stmt === false) {
-                die("Erro na preparação da consulta: " . $mysqli->error);
-            }
-
-            $stmt->bind_param("ss", $acao, $stockPrice);
-
-            if ($stmt->execute()) {
-                
-                header('Location: /dashboard');
-                exit;
-
-            } else {
-                echo "Erro ao inserir valores: " . $stmt->error;
-            }
-
-            $stmt->close();
-        }
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -88,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3&display=swap" rel="stylesheet">
     <title>API de Ações</title>
     <style>
-         
+
        body {
             font-family: 'Source Sans Pro', sans-serif;
             margin: 0;
@@ -137,11 +116,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         .btn {
-<<<<<<< HEAD
             background-color: #24993B;
-=======
             background-color: #186933;
->>>>>>> 243ff5241420bbf0bedc9382b2a2f4397c9e2caf
             color: #fff;
             border: none;
             padding: 10px 20px;
@@ -198,7 +174,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         .link{
             font-size: 14px;
             color:rgb(100, 100, 100);
-            hover:rgb(122, 124, 122); 
+            hover:rgb(122, 124, 122);
         }
     </style>
 </head>
@@ -224,7 +200,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <br>
                     <button type="submit" class="btn btn-primary">Buscar</button>
                     <br>
+                    <div class="mensagem">
 
+                        <p class="mensagem"><?php echo $mensagem; ?></p>
+
+                    </div>
                     @if (Route::has('ativo'))
                     <a class="link" href="{{ route('ativo') }}">
                         {{ __('Voltar para ativos') }}
@@ -232,7 +212,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     @endif
                 </form>
             </div>
-            
         </div>
     </div>
 </body>

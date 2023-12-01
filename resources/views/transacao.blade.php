@@ -25,7 +25,7 @@
 
                                 <form method="POST" action="{{ route('transacao')}}">
                                     @csrf
-                             
+
                                     <!-- Tipo de transação -->
                                     <div class="mb-2">
                                         <x-input-label for="tipoTransacao" :value="__('Tipo de Transação')" />
@@ -53,7 +53,7 @@
                                             {{ __('Fazer transação') }}
                                         </x-secondary-button>
                                     </div>
-                                    
+
 
                                 </form>
                             </div>
