@@ -73,13 +73,11 @@ $ativosFinanceiros = DB::table('ativos_Financeiros')
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto sm:px-20 lg:px-20">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="grid flex-wrap gap-x-10 items-center justify-center grid-cols-1 mx-auto shadow-xl lg:grid-cols-2 rounded-xl  bg-gray-50 p-6 text-gray-900">
-                    <div class="px-3 py-3">
-                        <div class="w-full sm:max-w-md px-8 py-4 shadow-md overflow-hidden sm:rounded-lg rounded-lg" style="background: rgb(34,149,150);  background: linear-gradient(266deg, rgba(34,149,150,1) 0%, rgba(131,218,160,1) 86%);">
-                            <div class="mt-6 space-y-1">
-
+                <div class="grid flex-wrap gap-x-30 items-center justify-center mx-auto shadow-xl  rounded-xl bg-gray-50 p-6 text-gray-900" style="background: rgb(34,149,150); background: linear-gradient(266deg, rgba(34,149,150,1) 0%, rgba(131,218,160,1) 86%); display: flex; justify-content: center; align-items: center;">
+                        <div class="grid grid-cols-3 gap-6">
+                            <div class="col-span-1">
                                 @foreach($walletNames as $name)
                                 <div class="d-flex justify-content-between align-items-center">
                                     <h1 class="carteira-ativos">Carteira {{ $name }}</h1>
@@ -170,8 +168,9 @@ $ativosFinanceiros = DB::table('ativos_Financeiros')
                                         </form>
                                     </div>
                                 </div>
-
-                                    <canvas id="doughnutChart" width="800" height="550"></canvas>
+                            </div>
+                            <div class="col-span-1">
+                                    <canvas id="doughnutChart" width="205" height="205"></canvas>
                                 <script> 
                                     // Modal
 
@@ -232,24 +231,18 @@ $ativosFinanceiros = DB::table('ativos_Financeiros')
                                         });
                                 </script>
                             </div>
-
-                            <div class="mt-6 space-y-1">
-
-                                @foreach ($ativosFinanceiros as $ativoFinanceiro)
-
+                            <div class="col-span-1">
+                                <div class="mt-6 space-y-1">
+                                    @foreach ($ativosFinanceiros as $ativoFinanceiro)
                                         <h1>{{ $ativoFinanceiro->nomeAtivo }}</h1>
                                         <h2>R$ {{ number_format($ativoFinanceiro->valorAtivo, 2, ',', '.') }}</h2>
-
-                                @endforeach
-
+                                    @endforeach
+                        
+                                    @php
+                                        echo '<p>Total da Carteira: R$' . number_format($total, 2, ',', '.') . '</p>';
+                                    @endphp
+                                </div>
                             </div>
-
-                        @php
-
-                            echo '<p>Total da Carteira: R$' . number_format($total, 2, ',', '.') . '</p>';
-
-                        @endphp
-
                         </div>
                     </div>
                 </div>
