@@ -25,8 +25,6 @@ Projeto de LDS (Laboratório de Desenvolvimento de Sistemas) para gerenciar uma 
 
 - Node.js — Ambiente de execução JavaScript.
 
-- Chart.js — é uma biblioteca JavaScript gratuita e de código aberto para visualização de dados, que oferece suporte a oito tipos de gráficos: barra, linha, área, pizza, bolha, radar, polar e dispersão.  
-
 ## Prepare o ambiente de desenvolvimento
 
 1. Instale o XAMPP na sua máquina:

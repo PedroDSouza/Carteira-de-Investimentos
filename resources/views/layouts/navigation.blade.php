@@ -24,8 +24,15 @@
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('transacao')" :active="request()->routeIs('transacao')">
-                        {{ __('Transações') }}
+                    <x-nav-link :href="route('carteiras')" :active="request()->routeIs('carteiras')">
+                        {{ __('Carteiras') }}
+                    </x-nav-link>
+                </div>
+
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('pesquisarativos')" :active="request()->routeIs('pesquisarativos')">
+                        {{ __('Pesquisar Ativos') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -45,13 +52,17 @@
                         </button>
                     </x-slot>
 
-                    <x-slot name="content">
-                        <x-dropdown-link :href="route('profile.edit')">
+                         <!-- Perfil -->
+                         <x-slot name="content">
+                         <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Profile') }}
-                        </x-dropdown-link>
+                         </x-dropdown-link>
 
-                        <!-- Authentication -->
-                        <form method="POST" action="{{ route('logout') }}">
+                         <!-- Minhas Carteiras -->
+                         <x-dropdown-link :href="route('minhascarteiras')">Minhas Carteiras</x-dropdown-link>
+
+                         <!-- Authentication -->
+                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
                             <x-dropdown-link :href="route('logout')"
@@ -78,11 +89,11 @@
 
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-       
+
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="px-4">
-                
+
                     <!-- Settings Dropdown -->
                     <div class="">
                         <x-dropdown  align="left" width="48">
@@ -98,7 +109,7 @@
                                 </button>
                             </x-slot>
 
-                           
+
                             <x-slot name="content">
                                 <x-dropdown-link :href="route('profile.edit')">
                                     {{ __('Profile') }}
@@ -114,7 +125,7 @@
                                         {{ __('Log Out') }}
                                     </x-dropdown-link>
                                 </form>
-                            </x-slot>    
+                            </x-slot>
                         </x-dropdown>
                     </div>
 
@@ -141,13 +152,13 @@
                         {{ __('Ativos em posse') }}
                     </x-responsive-nav-link>
                 </div>
-        
+
                 <div class="pt-2 pb-3 space-y-1">
                     <x-responsive-nav-link :href="route('ativo')" :active="request()->routeIs('ativo')">
                         {{ __('Criar um ativo') }}
                     </x-responsive-nav-link>
                 </div>
-        
+
                 <div class="pt-2 pb-3 space-y-1">
                     <x-responsive-nav-link :href="route('transacao')" :active="request()->routeIs('transacao')">
                         {{ __('Transações') }}
